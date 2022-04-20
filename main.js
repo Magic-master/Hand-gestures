@@ -18,7 +18,7 @@ function take_snapshot() {
 
 console.log('ml5 version', ml5.version);
 
-classifier = ml5.imageClassifier('', modelLoaded);
+classifier = ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/B2qOh1gbF/', modelLoaded);
 
 function modelLoaded() {
     console.log('Model Loaded!');
@@ -26,8 +26,33 @@ function modelLoaded() {
 
 function speak() {
     var synth = window.speechSynthesis;
-    speak_data_1 = "The first prediction is " + prediction_1;
-    speak_data_2 = "And the second prediction is " + prediction_2;
-    var utterThis = new SpeechSynthesisUtterance(speak_data_1 + speak_data_2);
+    speak_data_1 = "The prediction is " + prediction;
+    var utterThis = new SpeechSynthesisUtterance(speak_data);
     synth.speak(utterThis);
+}
+function check() {
+    img = documenet.getElementById("image_captured");
+    classifier.classify(img, gotResults);
+}
+
+function gotResults(error, results) {
+    if(error){
+        console.error(error);
+    }
+    else{ document.getElementById("result_gesture_name").innerHTML = results[0].label;
+    prediction = results[0].label;
+    speak();
+    if(results[0].label == "Vulcan Salute")
+    document.getElementById("result_emoji").innerHTML = "&#128406;";
+    }
+    if(results[0].label == "SHHH Symbol"){
+    document.getElementById("result_emoji").innerHTML = "&#128070;";
+    }
+    if(results[0].label == "Peace sign"){
+    document.getElementById("result_emoji").innerHTML = "&#9996;";
+    }
+    if(results[0].label == "Thumbs UP"){
+        document.getElementById("result_emoji").innerHTML = "&#128077;";
+        }
+    
 }

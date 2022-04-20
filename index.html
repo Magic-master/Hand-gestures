@@ -17,25 +17,20 @@
   <div class="container">
 
     <center>
-      <h3 class="btn btn-warning heading">EMOTION TO EMOJI APP
+      <h3 class="btn btn-warning heading">GESTURE WEB APP
         <br>
-        <span>&#128522</span>
-        <span>&#128512</span>
-        <span>&#128532</span>
-        <span>&#128456</span>
-        <span>&#128545</span>
-        <span>&#128548</span>
+        <span>&#9757</span>
+        <span>&#9996</span>
+        <span>&#128076</span>
+        <span>&#128077</span>
+        <span>&#128406</span>
       </h3>
 
       <br><br>
 
-      <p style="font-size: 22px;">Take a picture of a hand sign to generate which hand sign it is.
+      <p style="font-size: 22px;">Take a selfi of a gesture to know about it's meaning
         <br>
-        <b style="color: yellow">Are you Happy?</b>
-        <br>
-        <b style="color: black">Are you Sad?</b>
-        <br>
-        <b style="color: red">Are you Angry?</b>
+        <b style="color: rgb(15, 15, 15)">On the following Gestures the model is trained</b>
         <br>
       </p>
 
@@ -47,25 +42,23 @@
       </div>
 
       <div class="col-md-4 col-sm-12 col-xs-12">
-        <label>Prediction 1 - </label>
+        <label>Prediction - </label>
         <p class="emotion_name" id="result_emotion_name"></p>
         <p class="emoji" id="update_emoji"></p>
-
-        <label>Prediction 2 - </label>
-        <p class="emotion_name" id="result_emotion_name2"></p>
-        <p class="emoji" id="update_emoji2"></p>
       </div>
 
       <div class="col-md-4 col-sm-12 col-xs-12">
         <label>Snapshot - </label>
         <div id="result"></div>
         <br><br>
-        <button onclick="check();" class="btn btn-succes">Predict Emotion</button>
+        <button onclick="check();" class="btn btn-succes">Predict Gesture</button>
       </div>
+      <br><br>
+      <p id="Display gesture" style ="color: red; font-size:30px;"></p>
 
     </center>
 
-  </div>
+  </div> 
 
   <script src="main.js"></script>
 
